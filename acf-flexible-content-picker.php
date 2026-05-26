@@ -48,9 +48,9 @@ plugpanda_acf_fcp_plugin();
  * Subsequent deactivate/reactivate cycles leave the flag unset so no redirect occurs.
  */
 register_activation_hook( __FILE__, static function (): void {
-	// plugpanda_acf_fcp_plugin_first_activated is set once and never removed (unless the user
-	// opts in to "delete all data on uninstall"). If it already exists, this is a
-	// re-activation — skip the redirect.
+	// plugpanda_acf_fcp_plugin_first_activated persists across deactivate/reactivate
+	// cycles but is cleared on uninstall, so a genuine reinstall redirects again.
+	// If it already exists, this is a re-activation — skip the redirect.
 	if ( get_option( 'plugpanda_acf_fcp_plugin_first_activated' ) ) {
 		return;
 	}

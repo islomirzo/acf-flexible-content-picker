@@ -2,13 +2,20 @@
 /**
  * Runs on plugin uninstall.
  *
- * Data is only removed when the user has explicitly opted in via
+ * User data is only removed when the user has explicitly opted in via
  * Settings → ACF FCP → "Delete all plugin data when uninstalling".
- * The default behaviour is to keep all data so it is restored on reinstall.
+ * Internal activation markers are always cleared so a genuine reinstall
+ * counts as a fresh first activation.
  */
 
 defined( 'WP_UNINSTALL_PLUGIN' ) || exit;
 
+// Internal activation markers (not user data) — always cleared, so deleting
+// and reinstalling the plugin triggers the first-activation redirect again.
+delete_option( 'plugpanda_acf_fcp_plugin_first_activated' );
+delete_option( 'plugpanda_acf_fcp_plugin_activation_redirect' );
+
+// Everything below is user data — only removed when the user opted in.
 if ( '1' !== get_option( 'plugpanda_acf_fcp_delete_data_on_uninstall' ) ) {
 	return;
 }
@@ -30,5 +37,3 @@ delete_transient( 'plugpanda_acf_fcp_license_valid' );
 
 // Remove plugin settings (including this option itself).
 delete_option( 'plugpanda_acf_fcp_delete_data_on_uninstall' );
-delete_option( 'plugpanda_acf_fcp_plugin_first_activated' );
-delete_option( 'plugpanda_acf_fcp_plugin_activation_redirect' );
