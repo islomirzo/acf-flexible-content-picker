@@ -1,0 +1,401 @@
+/* ACF Flexible Content Picker — Settings page */
+
+.plugpanda-acf-fcp-settings {
+	max-width: 100%;
+}
+
+/* Hidden <h1> that acts as a WP notice anchor — keeps notices above our header */
+.plugpanda-acf-fcp-settings__notice-anchor {
+	display: block;
+	height: 0;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+	line-height: 0;
+}
+
+/* Notices injected by WP: strip the default top margin so they sit flush at the
+   same level as the left edge, then add space below to separate from the header */
+.plugpanda-acf-fcp-settings .notice,
+.plugpanda-acf-fcp-settings .updated,
+.plugpanda-acf-fcp-settings .error {
+	margin-top: 0 !important;
+	margin-bottom: 16px !important;
+}
+
+.plugpanda-acf-fcp-settings__header {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin: 0 0 20px;
+}
+
+.plugpanda-acf-fcp-settings__title {
+	margin: 0 !important;
+	padding: 0 !important;
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 1;
+	color: #1d2327;
+}
+
+.plugpanda-acf-fcp-settings__version {
+	font-size: 12px;
+	color: #787c82;
+	background: #f0f0f1;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	padding: 2px 8px;
+	line-height: 1.4;
+	display: inline-flex;
+	align-items: center;
+}
+
+.plugpanda-acf-fcp-settings__tagline {
+	margin: -12px 0 20px;
+	font-size: 13px;
+	color: #787c82;
+}
+
+.plugpanda-acf-fcp-settings__body {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	align-items: start;
+}
+
+.plugpanda-acf-fcp-settings__col {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+/* Plan + License column appears first, How to Use + Uninstall second */
+.plugpanda-acf-fcp-settings__col:first-child { order: 2; }
+.plugpanda-acf-fcp-settings__col:last-child  { order: 1; }
+
+/* Collapse to single column on narrow screens */
+@media (max-width: 960px) {
+	.plugpanda-acf-fcp-settings__body {
+		grid-template-columns: 1fr;
+	}
+}
+
+.plugpanda-acf-fcp-settings__card {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.plugpanda-acf-fcp-settings__card-header {
+	background: #f6f7f7;
+	border-bottom: 1px solid #dcdcde;
+	padding: 12px 20px;
+}
+
+.plugpanda-acf-fcp-settings__card-header h2 {
+	margin: 0;
+	font-size: 13px;
+	font-weight: 600;
+	color: #1d2327;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.plugpanda-acf-fcp-settings__card-body {
+	padding: 20px;
+}
+
+/* Updates */
+
+.plugpanda-acf-fcp-settings__update-text {
+	margin: 0 0 16px;
+	color: #50575e;
+}
+
+.plugpanda-acf-fcp-settings__update-actions {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+/* How to use */
+
+.plugpanda-acf-fcp-settings__steps {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.plugpanda-acf-fcp-settings__step {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+}
+
+.plugpanda-acf-fcp-settings__step-num {
+	flex-shrink: 0;
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	background: #2271b1;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 1px;
+}
+
+.plugpanda-acf-fcp-settings__step-body {
+	flex: 1;
+	min-width: 0;
+	padding-top: 5px;
+}
+
+.plugpanda-acf-fcp-settings__step-body strong {
+	display: block;
+	font-size: 13px;
+	font-weight: 600;
+	color: #1d2327;
+	margin-bottom: 4px;
+}
+
+.plugpanda-acf-fcp-settings__step-body p {
+	margin: 0;
+	font-size: 13px;
+	color: #50575e;
+	line-height: 1.6;
+}
+
+/* Plan */
+
+.plugpanda-acf-fcp-settings__plan {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.plugpanda-acf-fcp-settings__plan p {
+	margin: 0;
+	color: #50575e;
+	font-size: 13px;
+}
+
+.plugpanda-acf-fcp-settings__badge {
+	display: inline-block;
+	flex-shrink: 0;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	padding: 4px 10px;
+	border-radius: 4px;
+}
+
+.plugpanda-acf-fcp-settings__badge--pro {
+	background: #2271b1;
+	color: #fff;
+}
+
+.plugpanda-acf-fcp-settings__badge--free {
+	background: #f0f0f1;
+	color: #50575e;
+	border: 1px solid #dcdcde;
+}
+
+/* License row */
+
+.plugpanda-acf-fcp-settings__license-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.plugpanda-acf-fcp-settings__license-input {
+	flex: 1;
+	font-family: monospace;
+	font-size: 13px !important;
+}
+
+.plugpanda-acf-fcp-settings__btn-deactivate {
+	color: #b32d2e !important;
+	border-color: #b32d2e !important;
+}
+
+.plugpanda-acf-fcp-settings__btn-deactivate:hover {
+	background: #b32d2e !important;
+	color: #fff !important;
+}
+
+/* Notice */
+
+.plugpanda-acf-fcp-settings__notice {
+	padding: 10px 14px;
+	border-radius: 4px;
+	font-size: 13px;
+	margin-bottom: 14px;
+	border-left: 4px solid transparent;
+}
+
+.plugpanda-acf-fcp-settings__notice--success {
+	background: #edfaef;
+	border-color: #00a32a;
+	color: #1a6e2e;
+}
+
+.plugpanda-acf-fcp-settings__notice--error {
+	background: #fcf0f1;
+	border-color: #d63638;
+	color: #8a1f1f;
+}
+
+.plugpanda-acf-fcp-settings__notice--info {
+	background: #f0f6fc;
+	border-color: #2271b1;
+	color: #1d4468;
+}
+
+.plugpanda-acf-fcp-settings__card-body .description {
+	margin: 20px 0 0;
+	font-size: 15px;
+	font-weight: 600;
+	color: #1d2327;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.plugpanda-acf-fcp-settings__card-body .description a {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	flex-shrink: 0;
+	margin-top: 0;
+	padding: 7px 16px;
+	border-radius: 6px;
+	background: linear-gradient(135deg, #1d6fba, #2271b1, #1a9fe0);
+	background-size: 200% 100%;
+	color: #fff !important;
+	font-size: 12px;
+	font-weight: 700;
+	text-decoration: none !important;
+	letter-spacing: 0.03em;
+	box-shadow: 0 2px 8px rgba(34, 113, 177, 0.45);
+	animation: plugpanda-acf-fcp-settings-bg 3s ease infinite, plugpanda-acf-fcp-settings-shine 2.5s ease-in-out infinite;
+}
+
+.plugpanda-acf-fcp-settings__card-body .description a::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -75%;
+	width: 50%;
+	height: 100%;
+	background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+	animation: plugpanda-acf-fcp-settings-shine-sweep 2.5s ease-in-out infinite;
+}
+
+.plugpanda-acf-fcp-settings__card-body .description a:hover {
+	box-shadow: 0 4px 14px rgba(34, 113, 177, 0.6);
+}
+
+@keyframes plugpanda-acf-fcp-settings-bg {
+	0%   { background-position: 0% 50%; }
+	50%  { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
+@keyframes plugpanda-acf-fcp-settings-shine-sweep {
+	0%   { left: -75%; }
+	60%  { left: 125%; }
+	100% { left: 125%; }
+}
+
+/* Uninstall card */
+
+.plugpanda-acf-fcp-settings__data-row {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.plugpanda-acf-fcp-settings__toggle-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.plugpanda-acf-fcp-settings__toggle {
+	flex-shrink: 0;
+	display: inline-block;
+	cursor: pointer;
+	line-height: 0;
+}
+
+.plugpanda-acf-fcp-settings__toggle input[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+	margin: 0;
+}
+
+.plugpanda-acf-fcp-settings__toggle-track {
+	display: inline-block;
+	position: relative;
+	width: 40px;
+	height: 22px;
+	border-radius: 11px;
+	background: #c3c4c7;
+	transition: background 0.2s;
+}
+
+.plugpanda-acf-fcp-settings__toggle-track::after {
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #fff;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+	transition: transform 0.2s;
+}
+
+.plugpanda-acf-fcp-settings__toggle input[type="checkbox"]:checked + .plugpanda-acf-fcp-settings__toggle-track {
+	background: #2271b1;
+}
+
+.plugpanda-acf-fcp-settings__toggle input[type="checkbox"]:checked + .plugpanda-acf-fcp-settings__toggle-track::after {
+	transform: translateX(18px);
+}
+
+.plugpanda-acf-fcp-settings__toggle-label {
+	font-size: 13px;
+	font-weight: 500;
+	color: #1d2327;
+	cursor: pointer;
+	line-height: 1.4;
+}
+
+.plugpanda-acf-fcp-settings__data-hint {
+	margin: 0 0 0 50px !important;
+	font-size: 12px !important;
+	color: #787c82;
+	line-height: 1.6;
+}
+
+.plugpanda-acf-fcp-settings__data-footer {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 16px;
+	padding-top: 14px;
+	border-top: 1px solid #f0f0f1;
+}

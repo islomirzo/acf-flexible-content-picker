@@ -1,0 +1,600 @@
+/* ACF Flexible Content Picker — Modal overlay & shell */
+
+.plugpanda-acf-fcp-plugin-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 160000;
+	background: rgba(0, 0, 0, 0.55);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation: plugpanda-acf-fcp-plugin-fade-in 0.15s ease;
+}
+
+@keyframes plugpanda-acf-fcp-plugin-fade-in {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+
+.plugpanda-acf-fcp-plugin-modal {
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+	display: flex;
+	flex-direction: column;
+	width: min(1200px, 95vw);
+	max-height: 90vh;
+	animation: plugpanda-acf-fcp-plugin-slide-up 0.18s ease;
+	overflow: hidden;
+}
+
+@keyframes plugpanda-acf-fcp-plugin-slide-up {
+	from { transform: translateY(12px); opacity: 0; }
+	to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* Multi-select footer */
+.plugpanda-acf-fcp-plugin-modal__footer {
+	border-top: 1px solid #dcdcde;
+	padding: 16px;
+	background: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	flex-shrink: 0;
+}
+
+.plugpanda-acf-fcp-plugin-modal__footer-actions {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-left: auto;
+}
+
+.plugpanda-acf-fcp-plugin-modal__footer .button {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.plugpanda-acf-fcp-plugin-modal__footer .button:disabled {
+	opacity: 1;
+	cursor: not-allowed;
+	color: #a7aaad !important;
+	border-color: #dcdcde !important;
+	background: #f6f7f7 !important;
+	box-shadow: none !important;
+}
+
+.plugpanda-acf-fcp-plugin-modal__footer .button svg {
+	width: 14px;
+	height: 14px;
+	flex-shrink: 0;
+}
+
+.plugpanda-acf-fcp-plugin-modal__footer-clear {
+	color: #50575e !important;
+	background: #fff !important;
+	border-color: #c3c4c7 !important;
+}
+
+.plugpanda-acf-fcp-plugin-modal__footer-clear:hover {
+	background: #f6f7f7 !important;
+	border-color: #8c8f94 !important;
+}
+
+/* Preview banner shown at the top of each expanded layout in the post editor */
+.plugpanda-acf-fcp-plugin-layout-preview {
+	background: #f0f0f1;
+	border-bottom: 1px solid #dcdcde;
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
+}
+
+.plugpanda-acf-fcp-plugin-layout-preview__toggle {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: #787c82;
+}
+
+.plugpanda-acf-fcp-plugin-layout-preview__toggle:hover {
+	color: #50575e;
+}
+
+.plugpanda-acf-fcp-plugin-layout-preview__chevron {
+	transition: transform 0.2s;
+}
+
+.plugpanda-acf-fcp-plugin-layout-preview.is-collapsed .plugpanda-acf-fcp-plugin-layout-preview__chevron {
+	transform: rotate(-90deg);
+}
+
+.plugpanda-acf-fcp-plugin-layout-preview__img {
+	display: block;
+	width: 50%;
+	aspect-ratio: 16 / 9;
+	object-fit: contain;
+	background: #dcdcde;
+	border-radius: 4px;
+}
+
+/* ACF Flexible Content Picker — Modal header */
+
+.plugpanda-acf-fcp-plugin-modal__header {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 16px;
+	border-bottom: 1px solid #dcdcde;
+	flex-shrink: 0;
+}
+
+.plugpanda-acf-fcp-plugin-modal__title {
+	flex: 1;
+	margin: 0;
+	font-size: 22px;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.plugpanda-acf-fcp-plugin-modal__search-wrap {
+	position: relative;
+	flex: 0 0 220px;
+}
+
+.plugpanda-acf-fcp-plugin-modal__search {
+	width: 100%;
+	height: 30px;
+	padding-right: 30px;
+	border: 1px solid #c3c4c7 !important;
+	border-radius: 8px;
+	font-size: 13px;
+	color: #50575e !important;
+	background: #f6f7f7 !important;
+	outline: none;
+	transition: border-color 0.15s, box-shadow 0.15s;
+	box-sizing: border-box;
+}
+
+.plugpanda-acf-fcp-plugin-modal__search::placeholder {
+	color: #a7aaad !important;
+}
+
+.plugpanda-acf-fcp-plugin-modal__search::-webkit-search-cancel-button {
+	display: none;
+}
+
+.plugpanda-acf-fcp-plugin-modal__search:focus {
+	border-color: #8c8f94 !important;
+	box-shadow: none;
+}
+
+.plugpanda-acf-fcp-plugin-modal__search-clear {
+	position: absolute;
+	right: 7px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	color: #787c82;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.15s, color 0.15s;
+}
+
+.plugpanda-acf-fcp-plugin-modal__search:not(:placeholder-shown) ~ .plugpanda-acf-fcp-plugin-modal__search-clear {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.plugpanda-acf-fcp-plugin-modal__search-clear:hover {
+	color: #1d2327;
+}
+
+.plugpanda-acf-fcp-plugin-modal__search-clear svg {
+	width: 14px;
+	height: 14px;
+	pointer-events: none;
+}
+
+.plugpanda-acf-fcp-plugin-modal__close {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	border: 1px solid #c3c4c7 !important;
+	background: #f6f7f7 !important;
+	cursor: pointer;
+	border-radius: 3px;
+	color: #50575e !important;
+	flex-shrink: 0;
+	transition: background 0.1s, color 0.1s;
+}
+
+.plugpanda-acf-fcp-plugin-modal__close:hover,
+.plugpanda-acf-fcp-plugin-modal__close:focus {
+	background: #dcdcde !important;
+	outline: none;
+}
+
+.plugpanda-acf-fcp-plugin-modal__close svg {
+	width: 18px;
+	height: 18px;
+	fill: currentColor;
+	pointer-events: none;
+}
+
+/* WordPress 7 enlarges admin form controls, so the search input renders taller
+   and the fixed 30px close button looks small beside it. Use a larger square
+   (equal width and height) to match. */
+.plugpanda-acf-fcp-plugin-modal.is-wp7 .plugpanda-acf-fcp-plugin-modal__close {
+	width: 40px;
+	height: 40px;
+}
+
+.plugpanda-acf-fcp-plugin-modal.is-wp7 .plugpanda-acf-fcp-plugin-modal__close svg {
+	width: 22px;
+	height: 22px;
+}
+/* ACF Flexible Content Picker — Modal category tabs */
+
+.plugpanda-acf-fcp-plugin-modal__tabs {
+	display: flex;
+	gap: 2px;
+	padding: 10px 20px 0;
+	border-bottom: 1px solid #dcdcde;
+	flex-shrink: 0;
+	overflow-x: auto;
+	scrollbar-width: none;
+}
+
+.plugpanda-acf-fcp-plugin-modal__tabs::-webkit-scrollbar {
+	display: none;
+}
+
+.plugpanda-acf-fcp-plugin-modal__tab {
+	padding: 6px 14px;
+	border: none;
+	border-bottom: 3px solid transparent;
+	background: transparent;
+	font-size: 12px;
+	font-weight: 500;
+	color: #787c82;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: color 0.1s, border-color 0.1s;
+}
+
+.plugpanda-acf-fcp-plugin-modal__tab:hover {
+	color: #1d2327;
+}
+
+.plugpanda-acf-fcp-plugin-modal__tab[aria-selected="true"] {
+	color: #2271b1;
+	border-bottom-color: #2271b1;
+}
+/* ACF Flexible Content Picker — Modal layout grid & cards */
+
+.plugpanda-acf-fcp-plugin-modal__body {
+	flex: 1;
+	overflow-y: auto;
+	padding: 20px;
+}
+
+.plugpanda-acf-fcp-plugin-layout-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+	gap: 18px;
+}
+
+.plugpanda-acf-fcp-plugin-card {
+	position: relative;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	background: #fff;
+	padding: 0;
+	cursor: pointer;
+	transition: border-color 0.15s, box-shadow 0.15s, transform 0.12s, background 0.15s;
+	overflow: hidden;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.plugpanda-acf-fcp-plugin-card:hover,
+.plugpanda-acf-fcp-plugin-card:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 2px rgba(34, 113, 177, 0.2);
+	transform: translateY(-1px);
+	outline: none;
+}
+
+.plugpanda-acf-fcp-plugin-card:active {
+	transform: translateY(0);
+}
+
+.plugpanda-acf-fcp-plugin-card.is-selected {
+	border-color: #2271b1;
+	background: rgba(34, 113, 177, 0.05);
+	box-shadow: 0 0 0 2px rgba(34, 113, 177, 0.3);
+}
+
+.plugpanda-acf-fcp-plugin-card__badge svg {
+	width: 10px;
+	height: 10px;
+	display: block;
+	flex-shrink: 0;
+}
+
+.plugpanda-acf-fcp-plugin-card__badge {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 2px solid #2271b1;
+	background: #fff;
+	box-shadow: 0 0 0 3px #fff, 0 10px 36px rgba(0, 0, 0, 0.9), 0 3px 10px rgba(0, 0, 0, 0.65);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 15px;
+	font-weight: 700;
+	color: #2271b1;
+	opacity: 0;
+	transition: opacity 0.18s, background 0.18s, color 0.18s, transform 0.18s;
+	cursor: pointer;
+	line-height: 1;
+	z-index: 1;
+}
+
+.plugpanda-acf-fcp-plugin-card:hover .plugpanda-acf-fcp-plugin-card__badge {
+	opacity: 1;
+	transform: scale(1.08);
+}
+
+.plugpanda-acf-fcp-plugin-card.is-selected .plugpanda-acf-fcp-plugin-card__badge {
+	opacity: 1;
+	background: #2271b1;
+	color: #fff;
+	transform: scale(1);
+}
+
+.plugpanda-acf-fcp-plugin-card__thumbnail {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: contain;
+	display: block;
+	background: #f0f0f1;
+}
+
+.plugpanda-acf-fcp-plugin-card__thumbnail--placeholder {
+	aspect-ratio: 16 / 9;
+	background: linear-gradient(135deg, #f0f0f1 25%, #e8e8ec 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.plugpanda-acf-fcp-plugin-card__thumbnail--placeholder svg {
+	width: 32px;
+	height: 32px;
+	fill: #c3c4c7;
+}
+
+.plugpanda-acf-fcp-plugin-card__body {
+	padding: 14px 16px 16px;
+}
+
+.plugpanda-acf-fcp-plugin-card__label {
+	display: block;
+	font-size: 16px;
+	font-weight: 600;
+	color: #1d2327;
+	margin-bottom: 4px;
+	line-height: 1.4;
+}
+
+.plugpanda-acf-fcp-plugin-card__description {
+	display: block;
+	font-size: 14px;
+	color: #787c82;
+	line-height: 1.5;
+	margin: 0;
+}
+
+.plugpanda-acf-fcp-plugin-card__description--empty {
+	font-style: italic;
+	color: #c3c4c7;
+}
+
+.plugpanda-acf-fcp-plugin-card__category {
+	display: inline-block;
+	font-size: 10px;
+	font-weight: 500;
+	color: #2271b1;
+	background: rgba(34, 113, 177, 0.08);
+	border-radius: 2px;
+	padding: 2px 6px;
+	margin-top: 6px;
+}
+
+/* Reorder mode */
+.plugpanda-acf-fcp-plugin-layout-grid.is-reordering .plugpanda-acf-fcp-plugin-card:not(.is-selected) {
+	display: none;
+}
+
+.plugpanda-acf-fcp-plugin-layout-grid.is-reordering .plugpanda-acf-fcp-plugin-card {
+	cursor: grab;
+}
+
+.plugpanda-acf-fcp-plugin-layout-grid.is-reordering .plugpanda-acf-fcp-plugin-card.is-selected {
+	animation: plugpanda-acf-fcp-plugin-wiggle 0.3s ease-in-out infinite;
+}
+
+.plugpanda-acf-fcp-plugin-layout-grid.is-reordering .plugpanda-acf-fcp-plugin-card.is-selected:nth-child(even) {
+	animation-delay: -0.15s;
+}
+
+.plugpanda-acf-fcp-plugin-layout-grid.is-reordering .plugpanda-acf-fcp-plugin-card:hover {
+	transform: none;
+}
+
+.plugpanda-acf-fcp-plugin-layout-grid.is-reordering .plugpanda-acf-fcp-plugin-card.ui-sortable-helper {
+	animation: none;
+	cursor: grabbing;
+	background: #fff;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.plugpanda-acf-fcp-plugin-card--placeholder {
+	border: 2px dashed #2271b1;
+	border-radius: 6px;
+	background: rgba(34, 113, 177, 0.06);
+	visibility: visible !important;
+}
+
+@keyframes plugpanda-acf-fcp-plugin-wiggle {
+	0%   { transform: rotate(-1deg); }
+	50%  { transform: rotate(1deg); }
+	100% { transform: rotate(-1deg); }
+}
+
+.plugpanda-acf-fcp-plugin-modal__empty {
+	grid-column: 1 / -1;
+	text-align: center;
+	padding: 48px 0;
+	color: #787c82;
+	font-size: 13px;
+}
+
+.plugpanda-acf-fcp-plugin-hidden {
+	display: none !important;
+}
+
+mark.plugpanda-acf-fcp-plugin-highlight {
+	background: #fef08a;
+	color: inherit;
+	border-radius: 2px;
+	padding: 0 1px;
+}
+
+/* Locked (Pro) cards */
+
+.plugpanda-acf-fcp-plugin-card.is-locked {
+	cursor: not-allowed;
+	position: relative;
+	opacity: 0.55;
+	pointer-events: none;
+}
+
+.plugpanda-acf-fcp-plugin-card__lock-overlay {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-end;
+	padding: 8px;
+	pointer-events: none;
+}
+
+.plugpanda-acf-fcp-plugin-card__lock-badge {
+	background: #2271b1;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	padding: 3px 7px;
+	border-radius: 4px;
+	line-height: 1;
+}
+
+/* Upgrade notice inside grid */
+
+.plugpanda-acf-fcp-plugin-upgrade-notice {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	height: 63px;
+	box-sizing: border-box;
+	background: #f0f6fc;
+	border-top: 1px solid #c3d9f0;
+	padding: 0 24px;
+	font-size: 14px;
+	color: #1d4468;
+	flex-shrink: 0;
+}
+
+.plugpanda-acf-fcp-plugin-upgrade-notice span {
+	display: flex;
+	align-items: center;
+	line-height: 1;
+}
+
+.plugpanda-acf-fcp-plugin-upgrade-notice a {
+	flex-shrink: 0;
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	padding: 7px 16px;
+	border-radius: 6px;
+	background: linear-gradient(135deg, #1d6fba, #2271b1, #1a9fe0);
+	background-size: 200% 100%;
+	color: #fff !important;
+	font-size: 12px;
+	font-weight: 700;
+	text-decoration: none !important;
+	white-space: nowrap;
+	letter-spacing: 0.03em;
+	box-shadow: 0 2px 8px rgba(34, 113, 177, 0.45);
+	animation: plugpanda-acf-fcp-upgrade-bg 3s ease infinite;
+}
+
+.plugpanda-acf-fcp-plugin-upgrade-notice a::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -75%;
+	width: 50%;
+	height: 100%;
+	background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+	animation: plugpanda-acf-fcp-upgrade-shine 2.5s ease-in-out infinite;
+}
+
+.plugpanda-acf-fcp-plugin-upgrade-notice a:hover {
+	box-shadow: 0 4px 14px rgba(34, 113, 177, 0.6);
+}
+
+@keyframes plugpanda-acf-fcp-upgrade-bg {
+	0%   { background-position: 0% 50%; }
+	50%  { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
+@keyframes plugpanda-acf-fcp-upgrade-shine {
+	0%   { left: -75%; }
+	60%  { left: 125%; }
+	100% { left: 125%; }
+}

@@ -1,0 +1,364 @@
+/* ACF Flexible Content Picker — Field settings panel */
+
+.plugpanda-acf-fcp-plugin-wrapper {
+	display: block;
+	box-sizing: border-box;
+	margin: 35px 70px 0 !important;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	padding: 20px !important;
+	background: #fff;
+	clear: both;
+}
+
+.plugpanda-acf-fcp-plugin-wrapper__header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 0;
+}
+
+.plugpanda-acf-fcp-plugin-wrapper__title {
+	font-size: 12px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.07em;
+	color: #50575e;
+	margin: 0;
+}
+
+.plugpanda-acf-fcp-plugin-wrapper__help {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #dcdcde;
+	color: #50575e;
+	font-size: 10px;
+	font-weight: 700;
+	line-height: 1;
+	cursor: default;
+	flex-shrink: 0;
+}
+
+.plugpanda-acf-fcp-plugin-wrapper__help:hover {
+	background: #2271b1;
+	color: #fff;
+}
+
+.plugpanda-acf-fcp-plugin-wrapper__tooltip {
+	display: none;
+	position: absolute;
+	left: 50%;
+	bottom: calc(100% + 6px);
+	transform: translateX(-50%);
+	background: #1d2327;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 400;
+	text-transform: none;
+	letter-spacing: 0;
+	line-height: 1.5;
+	padding: 8px 12px;
+	border-radius: 4px;
+	white-space: normal;
+	width: 240px;
+	z-index: 9999;
+	pointer-events: none;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.plugpanda-acf-fcp-plugin-wrapper__tooltip::before {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	border: 5px solid transparent;
+	border-top-color: #1d2327;
+}
+
+.plugpanda-acf-fcp-plugin-wrapper__help:hover .plugpanda-acf-fcp-plugin-wrapper__tooltip {
+	display: block;
+}
+
+.plugpanda-acf-fcp-plugin-wrapper__upgrade-btn {
+	position: relative;
+	overflow: hidden;
+	display: inline-flex;
+	align-items: center;
+	flex-shrink: 0;
+	margin-left: auto;
+	padding: 8px 18px;
+	border-radius: 6px;
+	background: linear-gradient(135deg, #1d6fba, #2271b1, #1a9fe0);
+	background-size: 200% 100%;
+	color: #fff !important;
+	font-size: 13px;
+	font-weight: 700;
+	text-decoration: none !important;
+	letter-spacing: 0.03em;
+	white-space: nowrap;
+	box-shadow: 0 2px 8px rgba(34, 113, 177, 0.45);
+	animation: plugpanda-acf-fcp-panel-bg 3s ease infinite;
+}
+
+.plugpanda-acf-fcp-plugin-wrapper__upgrade-btn::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -75%;
+	width: 50%;
+	height: 100%;
+	background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%);
+	animation: plugpanda-acf-fcp-panel-shine 2.5s ease-in-out infinite;
+}
+
+.plugpanda-acf-fcp-plugin-wrapper__upgrade-btn:hover {
+	box-shadow: 0 4px 14px rgba(34, 113, 177, 0.6);
+}
+
+@keyframes plugpanda-acf-fcp-panel-bg {
+	0%   { background-position: 0% 50%; }
+	50%  { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
+@keyframes plugpanda-acf-fcp-panel-shine {
+	0%   { left: -75%; }
+	60%  { left: 125%; }
+	100% { left: 125%; }
+}
+
+.plugpanda-acf-fcp-plugin-wrapper .acf-field[data-name="plugpanda_acf_fcp_plugin_enabled"] {
+	display: inline-flex !important;
+	align-items: center !important;
+	flex-shrink: 0;
+	margin: 0 !important;
+	padding: 0 !important;
+	float: none !important;
+	border: none !important;
+	width: auto !important;
+}
+
+.plugpanda-acf-fcp-plugin-wrapper .acf-field[data-name="plugpanda_acf_fcp_plugin_enabled"] .acf-label {
+	display: none !important;
+}
+
+.plugpanda-acf-fcp-plugin-wrapper .acf-field[data-name="plugpanda_acf_fcp_plugin_enabled"] .acf-input {
+	float: none !important;
+	width: auto !important;
+	padding: 0 !important;
+}
+
+.plugpanda-acf-fcp-plugin {
+	overflow: hidden;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0 !important;
+	border: none;
+	border-top: 1px solid #dcdcde;
+	background: #fff;
+	border-radius: 0 0 8px 8px;
+}
+
+.plugpanda-acf-fcp-plugin.acf-field {
+	clear: both;
+	float: none;
+	width: calc(100% + 40px) !important;
+	margin: 20px -20px -20px !important;
+	padding: 0 !important;
+}
+
+.plugpanda-acf-fcp-plugin__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 0 24px;
+	min-height: 70px;
+	background: #f3f4f6;
+	cursor: pointer;
+	user-select: none;
+	border-bottom: 1px solid #d0d5dd;
+	transition: background 0.15s;
+}
+
+.plugpanda-acf-fcp-plugin__header-info {
+	flex: 1;
+	min-width: 0;
+}
+
+.plugpanda-acf-fcp-plugin__title {
+	display: block;
+	font-size: 13px;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.plugpanda-acf-fcp-plugin__desc {
+	display: block;
+	font-size: 12px;
+	color: #787c82;
+	margin-top: 3px;
+}
+
+.plugpanda-acf-fcp-plugin__chevron {
+	flex-shrink: 0;
+	width: 20px;
+	height: 20px;
+	background-color: #787c82;
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cpath%20fill='none'%20stroke='%23000'%20stroke-linecap='round'%20stroke-linejoin='round'%20stroke-width='2'%20d='M6%209l6%206%206-6'/%3E%3C/svg%3E");
+	mask-image: url("data:image/svg+xml,%3Csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cpath%20fill='none'%20stroke='%23000'%20stroke-linecap='round'%20stroke-linejoin='round'%20stroke-width='2'%20d='M6%209l6%206%206-6'/%3E%3C/svg%3E");
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: contain;
+	mask-size: contain;
+	-webkit-mask-position: center;
+	mask-position: center;
+	transform: rotate(180deg);
+	transition: transform 0.2s, background-color 0.15s;
+}
+
+.plugpanda-acf-fcp-plugin__header[aria-expanded="false"] {
+	border-bottom: none;
+}
+
+.plugpanda-acf-fcp-plugin__header[aria-expanded="false"] .plugpanda-acf-fcp-plugin__chevron {
+	transform: rotate(0deg);
+}
+
+.plugpanda-acf-fcp-plugin__header:hover .plugpanda-acf-fcp-plugin__chevron {
+	background-color: #50575e;
+}
+
+.plugpanda-acf-fcp-plugin__body {
+	background: #fafbfc;
+	padding: 24px;
+}
+
+.plugpanda-acf-fcp-plugin__body .acf-input {
+	display: grid !important;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 24px;
+	float: none;
+	clear: both;
+	width: 100% !important;
+	max-width: 100% !important;
+	padding: 0;
+}
+
+@media (max-width: 1200px) {
+	.plugpanda-acf-fcp-plugin__body .acf-input {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 900px) {
+	.plugpanda-acf-fcp-plugin__body .acf-input {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ACF Flexible Content Picker — Per-layout row cards & fields */
+
+.plugpanda-acf-fcp-plugin__row {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	overflow: hidden;
+	box-sizing: border-box;
+	margin: 0;
+}
+
+.plugpanda-acf-fcp-plugin__row-head {
+	background: #f1f3f5;
+	border-bottom: 1px solid #dcdcde;
+	padding: 8px 12px;
+	text-align: center;
+}
+
+.plugpanda-acf-fcp-plugin__row-label {
+	font-size: 14px;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.plugpanda-acf-fcp-plugin__row-fields {
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.plugpanda-acf-fcp-plugin__field label {
+	display: block;
+	font-size: 13px;
+	font-weight: 600;
+	color: #1d2327;
+	margin-bottom: 4px;
+}
+
+.plugpanda-acf-fcp-plugin__field label .description {
+	font-weight: 400;
+	color: #787c82;
+}
+
+.plugpanda-acf-fcp-plugin__field input.widefat,
+.plugpanda-acf-fcp-plugin__field textarea.widefat {
+	font-size: 14px;
+}
+
+.plugpanda-acf-fcp-plugin__field--thumb {
+	display: flex;
+	gap: 10px;
+	align-items: flex-start;
+}
+
+.plugpanda-acf-fcp-plugin__thumb-box {
+	flex-shrink: 0;
+	width: 107.4px;
+	height: 107.4px;
+	background: #f0f0f1;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+.plugpanda-acf-fcp-plugin__thumb-preview {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.plugpanda-acf-fcp-plugin__thumb-controls {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	min-width: 0;
+}
+
+.plugpanda-acf-fcp-plugin__thumb-controls .widefat {
+	font-size: 14px;
+}
+
+.plugpanda-acf-fcp-plugin__thumb-or {
+	font-size: 11px;
+	color: #787c82;
+}
+
+.plugpanda-acf-fcp-plugin__thumb-controls .button {
+	width: 50%;
+	font-size: 13px;
+	height: 40px;
+	line-height: 38px;
+	padding: 0 10px;
+	box-sizing: border-box;
+	text-align: center;
+	justify-content: center;
+}
