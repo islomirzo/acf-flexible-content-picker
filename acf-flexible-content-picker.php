@@ -3,7 +3,7 @@
  * Plugin Name:       ACF Flexible Content Picker
  * Plugin URI:        https://plugpandas.gumroad.com/l/acf-flexible-content-picker
  * Description:       Replaces the ACF Flexible Content dropdown with a modal to preview, select, reorder, and add multiple layouts at once.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.0
  * Tested up to:      7.0
  * Requires PHP:      7.4
@@ -19,7 +19,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PLUGPANDA_ACF_FCP_PLUGIN_VERSION', '1.0.0' );
+define( 'PLUGPANDA_ACF_FCP_PLUGIN_VERSION', '1.0.1' );
 define( 'PLUGPANDA_ACF_FCP_PLUGIN_MIN_PHP', '7.4' );
 define( 'PLUGPANDA_ACF_FCP_PLUGIN_FILE', __FILE__ );
 define( 'PLUGPANDA_ACF_FCP_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
