@@ -186,7 +186,7 @@ class Settings_Page {
 		?>
 		<div class="plugpanda-acf-fcp-settings__card">
 			<div class="plugpanda-acf-fcp-settings__card-header">
-				<h2><?php esc_html_e( 'Updates', 'acf-flexible-content-picker' ); ?></h2>
+				<h2><?php esc_html_e( 'Updates & Support', 'acf-flexible-content-picker' ); ?></h2>
 			</div>
 			<div class="plugpanda-acf-fcp-settings__card-body">
 				<p class="plugpanda-acf-fcp-settings__update-text">
@@ -213,6 +213,16 @@ class Settings_Page {
 						<?php esc_html_e( 'Update Now', 'acf-flexible-content-picker' ); ?>
 					</a>
 				</div>
+				<p class="plugpanda-acf-fcp-settings__support">
+					<?php printf(
+						wp_kses(
+							/* translators: %s: support email address (linked) */
+							__( 'Please email %s for support. We will respond within 24 hours.', 'acf-flexible-content-picker' ),
+							[ 'a' => [ 'href' => [] ] ]
+						),
+						'<a href="mailto:gmnuriddin2020@gmail.com">gmnuriddin2020@gmail.com</a>'
+					); ?>
+				</p>
 			</div>
 		</div>
 		<?php
