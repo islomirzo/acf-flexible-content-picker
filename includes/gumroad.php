@@ -68,10 +68,12 @@ class Gumroad_Provider implements License_Provider {
 			return false;
 		}
 
-		// Cancelled, failed, or ended subscriptions are no longer valid.
-		if ( ! empty( $purchase['subscription_cancelled_at'] )
-			|| ! empty( $purchase['subscription_failed_at'] )
-			|| ! empty( $purchase['subscription_ended_at'] ) ) {
+		// A cancellation alone does NOT revoke access — Gumroad keeps the
+		// subscription valid until the paid period ends, so the buyer keeps Pro
+		// for what they paid for. Revoke only once the subscription has actually
+		// ended, or a renewal payment has failed (the new period was never paid).
+		if ( ! empty( $purchase['subscription_ended_at'] )
+			|| ! empty( $purchase['subscription_failed_at'] ) ) {
 			return false;
 		}
 
